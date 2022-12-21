@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  --colorscheme
   use({
 	  'bignimbus/pop-punk.vim',
 	  as = 'pop-punk',
