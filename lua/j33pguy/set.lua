@@ -1,35 +1,41 @@
-vim.opt.guicursor = ""
+local settings = require("settings")
+local utils = require("utils")
+local o = vim.opt
+--local fn = vim.fn
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+o.guicursor = ""
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+o.nu = true
+o.relativenumber = true
 
-vim.opt.smartindent = true
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
 
-vim.opt.wrap = false
+o.smartindent = true
+o.smartcase = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .."/.vim/undodir" --Longrunning undos
-vim.opt.undofile = true
+o.wrap = false
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+o.swapfile = false
+o.backup = false
+o.undodir = os.getenv("HOME") .."/.vim/undodir" --Longrunning undos
+o.undofile = true
 
-vim.opt.termguicolors = true
+o.hlsearch = false
+o.incsearch = true
 
-vim.opt.scrolloff = 8 --always keep 8 lines displayed
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+o.termguicolors = true
 
-vim.opt.updatetime = 50
+o.scrolloff = 8 --always keep 8 lines displayed
+o.signcolumn = "yes"
+o.isfname:append("@-@")
 
-vim.opt.colorcolumn = "80"
+o.updatetime = 50
 
-vim.g.mapleader = " "
+o.colorcolumn = "80"
 
-vim.opt.background = "dark"
+o.background = "dark"
+
+o.wildmode = true

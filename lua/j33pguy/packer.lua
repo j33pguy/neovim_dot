@@ -3,6 +3,13 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+local settings = require("settings")
+--local fn = vim.fn
+
+local function get_config(name)
+    return string.format('require("config/%s")',name)
+end
+
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -31,6 +38,16 @@ return require('packer').startup(function(use)
   use ('vim-airline/vim-airline-themes')
   use ('majutsushi/tagbar')
   use ('ryanoasis/vim-devicons')
+  use ({
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = get_config("ui.noice"),
+    requires = {
+        "MunifTanjim/nui.nvim",
+        {'rcarriga/nvim-notify',config = get_config("ui.notify") }
+    },
+    disable = settings.disable_noice,
+  })
 
   use ('kdheepak/lazygit.nvim', {tag = 'nvim-v0.4.3'})
   use ('voldikss/vim-floaterm')
