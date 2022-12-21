@@ -1,5 +1,5 @@
-local settings = require("settings")
-local utils = require("utils")
+--local settings = require("settings")
+--local utils = require("utils")
 local o = vim.opt
 --local fn = vim.fn
 
@@ -38,4 +38,5 @@ o.colorcolumn = "80"
 
 o.background = "dark"
 
-o.wildmode = true
+o.wildmode = "full"
+o.wildignorecase = true
