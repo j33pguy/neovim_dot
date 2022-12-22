@@ -13,6 +13,7 @@ map("n","<leader>pv",vim.cmd.Ex)
 
 
 --Move highlighted lines while in visual mode
+--Remeber: use <C-v> to go into visual block mode
 map("v","J",":m '>+1<CR>gv=gv")
 map("v","K",":m '<-2<CR>gv=gv")
 

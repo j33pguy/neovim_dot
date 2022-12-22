@@ -3,13 +3,39 @@
 vim.cmd [[packadd packer.nvim]]
 
 local settings = require( "j33pguy.settings" )
---local fn = vim.fn
+local fn = vim.fn
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 local function get_config(name)
-    return string.format( 'require("config/%s")',name )
+    return string.format( 'require("config/%s")', name )
 end
 
-return require( 'packer' ).startup(function(use)
+--Bootstrap Packer if not installed
+if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({
+    "git",
+    "clone",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+    })
+    print("Installing Packer...")
+    vim.api.nvim_command("packadd packer.nvim")
+end
+
+local packer = require("packer")
+packer.init({
+    enable = true, --enable profiling via :PackerCompile profile=true
+    threshold = 0, --the amount in ms that a plugins load time must be over for it to included in the profile
+    max_jobs = 20, --limit the number of simultaneous jobs. nil means no limit. Set to 20 to keep packer sync from getting stuck
+    --have packer use pop-up window
+    display = {
+        open_fn = function ()
+            return require("packer.util").float({ border = "rounded" })
+        end,
+    },
+})
+
+packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -48,12 +74,13 @@ return require( 'packer' ).startup(function(use)
     config = get_config("ui.noice"),
     requires = {
         "MunifTanjim/nui.nvim",
-        { 'rcarriga/nvim-notify',config = get_config("ui.notify") }
+        { 'rcarriga/nvim-notify',config = get_config("ui.notify") },
     },
     disable = settings.disable_noice,
   })
 
-  -- TODO:
+  -- TODO
+  -- FIX
   use ({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
