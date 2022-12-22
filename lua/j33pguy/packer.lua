@@ -88,6 +88,27 @@ packer.startup(function(use)
     disable = settings.disable_noice,
   })
 
+  use ({ "nvim-telescope/telescope-packer.nvim" })
+  use ({ "nvim-telescope/telescope-symbols.nvim" })
+  use ({ "ptethng/telescope-makefile" })
+
+  use ({
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      cmd = "NeoTree*",
+      requires = {
+          {
+              "s1n7ax/nvim-window-picker",
+              config = get_config("ui.nvim-window-picker"),
+          },
+          "nvim-lua/plenary.nvim",
+          "kyazdani42/nvim-web-devicons",
+          "MunifTanjim/nui.nvim",
+      },
+      config = get_config("ui.neotree"),
+  })
+
+
   use ({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",

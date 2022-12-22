@@ -53,5 +53,13 @@ local wk = require("which-key")
 wk.register({
     sa = "Add surrounding",
     sd = "Delete surrounding",
+})
+
+wk.register({
+f = {
+    name = "Files",
+    t = {"<cmd>Ntree toggle<cr>", "Toggle Filetree" },
+},
+
 },{ prefix = "<leader>",mode = "n", default_options })
 
