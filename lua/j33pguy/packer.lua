@@ -39,11 +39,14 @@ packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = {{ 'nvim-lua/plenary.nvim' }}
-  }
+  use ({
+    "nvim-telescope/telescope.nvim",
+    tag = '0.1.0',
+    requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
+    cmd = "Telescope",
+    module = "telescope",
+    config = get_config("ui.telescope"),
+  })
 
   --colorscheme
   use({
