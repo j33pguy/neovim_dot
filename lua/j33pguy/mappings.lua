@@ -58,7 +58,7 @@ wk.register({
 wk.register({
 f = {
     name = "Files",
-    t = {"<cmd>Ntree toggle<cr>", "Toggle Filetree" },
+    p = {"<cmd>Neotree toggle<cr>", "Toggle Filetree" },
 },
 
 },{ prefix = "<leader>",mode = "n", default_options })

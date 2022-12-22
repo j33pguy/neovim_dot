@@ -70,6 +70,7 @@ packer.startup(function(use)
   use ( 'vim-airline/vim-airline-themes' )
   use ( 'majutsushi/tagbar' )
   use ( 'ryanoasis/vim-devicons' )
+  use ( 'MunifTanjim/nui.nvim' )
 
   use ({
       'L3MON4D3/LuaSnip',
@@ -88,14 +89,10 @@ packer.startup(function(use)
     disable = settings.disable_noice,
   })
 
-  use ({ "nvim-telescope/telescope-packer.nvim" })
-  use ({ "nvim-telescope/telescope-symbols.nvim" })
-  use ({ "ptethng/telescope-makefile" })
-
   use ({
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v2.x",
-      cmd = "NeoTree*",
+      cmd = "Neotree*",
       requires = {
           {
               "s1n7ax/nvim-window-picker",

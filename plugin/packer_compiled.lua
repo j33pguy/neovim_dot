@@ -145,13 +145,18 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["neo-tree.nvim"] = {
-    commands = { "NeoTree*" },
+    commands = { "Neotree*" },
     config = { 'require("config/ui.neotree")' },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/home/j33p/.local/share/nvim/site/pack/packer/opt/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -209,21 +214,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/majutsushi/tagbar"
-  },
-  ["telescope-makefile"] = {
-    loaded = true,
-    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-makefile",
-    url = "https://github.com/ptethng/telescope-makefile"
-  },
-  ["telescope-packer.nvim"] = {
-    loaded = true,
-    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-packer.nvim",
-    url = "https://github.com/nvim-telescope/telescope-packer.nvim"
-  },
-  ["telescope-symbols.nvim"] = {
-    loaded = true,
-    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-symbols.nvim",
-    url = "https://github.com/nvim-telescope/telescope-symbols.nvim"
   },
   ["telescope.nvim"] = {
     commands = { "Telescope" },
@@ -316,10 +306,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-require("config/coding.todo")
-time([[Config for todo-comments.nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 require("config/coding.luasnip")
@@ -328,6 +314,10 @@ time([[Config for LuaSnip]], false)
 time([[Config for nvim-window-picker]], true)
 require("config/ui.nvim-window-picker")
 time([[Config for nvim-window-picker]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require("config/coding.todo")
+time([[Config for todo-comments.nvim]], false)
 -- Config for: pop-punk
 time([[Config for pop-punk]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
@@ -343,7 +333,7 @@ pcall(vim.api.nvim_create_user_command, 'Telescope', function(cmdargs)
           require('packer.load')({'telescope.nvim'}, { cmd = 'Telescope' }, _G.packer_plugins)
           return vim.fn.getcompletion('Telescope ', 'cmdline')
       end})
-pcall(vim.cmd, [[au CmdUndefined NeoTree* ++once lua require"packer.load"({'neo-tree.nvim'}, {}, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Neotree* ++once lua require"packer.load"({'neo-tree.nvim'}, {}, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 
