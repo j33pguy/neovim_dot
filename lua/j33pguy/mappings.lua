@@ -58,7 +58,10 @@ wk.register({
 wk.register({
 f = {
     name = "Files",
-    p = {"<cmd>Neotree toggle<cr>", "Toggle Filetree" },
+    f = {"<cmd>Neotree focus filesystem toggle<cr>", "Toggle Filetree" },
+    b = {"<cmd>Neotree focus buffers toggle<cr>", "Toggle buffers" },
+    g = {"<cmd>Neotree focus git_status toggle<cr>", "Toggle Git Status" },
+
 },
 
 },{ prefix = "<leader>",mode = "n", default_options })
