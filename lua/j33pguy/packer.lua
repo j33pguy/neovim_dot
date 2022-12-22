@@ -41,12 +41,14 @@ packer.startup(function(use)
 
   use ({
     "nvim-telescope/telescope.nvim",
-    tag = '0.1.0',
     requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
     cmd = "Telescope",
     module = "telescope",
     config = get_config("ui.telescope"),
   })
+
+  --Useful to help remember what keys are maped
+  use ({ "folke/which-key.nvim", get_config = ("ui.which-key") })
 
   --colorscheme
   use({
@@ -69,7 +71,11 @@ packer.startup(function(use)
   use ( 'majutsushi/tagbar' )
   use ( 'ryanoasis/vim-devicons' )
 
-  use ({ 'L3MON4D3/LuaSnip', tag = "v<CurrentMajor>.*"})
+  use ({
+      'L3MON4D3/LuaSnip',
+      requires = "saadparwaiz1/cmp_luasnip",
+      config = get_config("coding.luasnip"),
+  })
 
   use ({
     "folke/noice.nvim",
@@ -82,15 +88,13 @@ packer.startup(function(use)
     disable = settings.disable_noice,
   })
 
-  -- TODO
-  -- FIX
   use ({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = get_config("coding.todo"),
   })
 
-  use({ "LudoPinelli/comment-box.nvim",cmd = "CB*", config = get_config("coding.comment-box") })
+  use({ "LudoPinelli/comment-box.nvim", cmd = "CB*", config = get_config("coding.comment-box") })
 
 
   --LazyGit interface using floaterm

@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+local default_options = { silent = true }
+
 vim.g.mapleader = " "
 
 --Move to diff panes by using CNTRL HJKL 
@@ -46,4 +48,10 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 --make file im on executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+local wk = require("which-key")
+
+wk.register({
+    sa = "Add surrounding",
+    sd = "Delete surrounding",
+},{ prefix = "<leader>",mode = "n", default_options })
 
