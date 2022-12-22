@@ -1,4 +1,4 @@
-local settings = require("settings")
+local settings = require( "j33pguy.settings" )
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")

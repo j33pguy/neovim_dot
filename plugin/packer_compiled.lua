@@ -331,22 +331,22 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-require("config/coding.todo")
-time([[Config for todo-comments.nvim]], false)
--- Config for: pop-punk
-time([[Config for pop-punk]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
-time([[Config for pop-punk]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 require("config/coding.luasnip")
 time([[Config for LuaSnip]], false)
+-- Config for: pop-punk
+time([[Config for pop-punk]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
+time([[Config for pop-punk]], false)
 -- Config for: nvim-window-picker
 time([[Config for nvim-window-picker]], true)
 require("config/ui.nvim-window-picker")
 time([[Config for nvim-window-picker]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require("config/coding.todo")
+time([[Config for todo-comments.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
