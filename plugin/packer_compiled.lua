@@ -215,6 +215,31 @@ _G.packer_plugins = {
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/majutsushi/tagbar"
   },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
+  ["telescope-heading.nvim"] = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-heading.nvim",
+    url = "https://github.com/crispgm/telescope-heading.nvim"
+  },
+  ["telescope-packer.nvim"] = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-packer.nvim",
+    url = "https://github.com/nvim-telescope/telescope-packer.nvim"
+  },
+  ["telescope-symbols.nvim"] = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-symbols.nvim",
+    url = "https://github.com/nvim-telescope/telescope-symbols.nvim"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+  },
   ["telescope.nvim"] = {
     commands = { "Telescope" },
     config = { 'require("config/ui.telescope")' },
@@ -306,14 +331,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require("config/coding.luasnip")
-time([[Config for LuaSnip]], false)
--- Config for: nvim-window-picker
-time([[Config for nvim-window-picker]], true)
-require("config/ui.nvim-window-picker")
-time([[Config for nvim-window-picker]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 require("config/coding.todo")
@@ -322,6 +339,14 @@ time([[Config for todo-comments.nvim]], false)
 time([[Config for pop-punk]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
 time([[Config for pop-punk]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require("config/coding.luasnip")
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-window-picker
+time([[Config for nvim-window-picker]], true)
+require("config/ui.nvim-window-picker")
+time([[Config for nvim-window-picker]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

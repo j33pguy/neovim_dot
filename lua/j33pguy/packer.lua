@@ -2,7 +2,7 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-local settings = require( "j33pguy.settings" )
+local settings = require( "settings" )
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -46,6 +46,11 @@ packer.startup(function(use)
     module = "telescope",
     config = get_config("ui.telescope"),
   })
+  use ({ 'crispgm/telescope-heading.nvim' })
+  use ({ 'nvim-telescope/telescope-file-browser.nvim' })
+  use ({ 'nvim-telescope/telescope-symbols.nvim' })
+  use ({ 'nvim-telescope/telescope-packer.nvim' })
+  use ({ 'nvim-telescope/telescope-ui-select.nvim' })
 
   --Useful to help remember what keys are maped
   use ({ "folke/which-key.nvim", get_config = ("ui.which-key") })
