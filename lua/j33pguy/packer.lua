@@ -2,7 +2,7 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-local settings = require( "settings" )
+local settings = require( "j33pguy.settings" )
 --local fn = vim.fn
 
 local function get_config(name)
@@ -28,6 +28,7 @@ return require( 'packer' ).startup(function(use)
 	  end
   })
 
+  use ( 'BurntSushi/ripgrep' )
   use ( 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use ( 'theprimeagen/harpoon' )
   use ( 'mbbill/undotree' )
@@ -38,6 +39,9 @@ return require( 'packer' ).startup(function(use)
   use ( 'vim-airline/vim-airline-themes' )
   use ( 'majutsushi/tagbar' )
   use ( 'ryanoasis/vim-devicons' )
+
+  use ({ 'L3MON4D3/LuaSnip', tag = "v<CurrentMajor>.*"})
+
   use ({
     "folke/noice.nvim",
     event = "VimEnter",
@@ -49,6 +53,17 @@ return require( 'packer' ).startup(function(use)
     disable = settings.disable_noice,
   })
 
+  -- TODO:
+  use ({
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = get_config("coding.todo"),
+  })
+
+  use({ "LudoPinelli/comment-box.nvim",cmd = "CB*", config = get_config("coding.comment-box") })
+
+
+  --LazyGit interface using floaterm
   use ( 'kdheepak/lazygit.nvim', { tag = 'nvim-v0.4.3' })
   --colorscheme
   use ( 'voldikss/vim-floaterm' )

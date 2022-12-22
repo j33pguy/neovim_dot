@@ -8,8 +8,9 @@ map("n","<C-j>", "<C-w>j")
 map("n","<C-k>", "<C-w>k")
 map("n","<C-l>", "<C-w>l")
 
---Open file explorer
+--Open NETRW for file exploration
 map("n","<leader>pv",vim.cmd.Ex)
+
 
 --Move highlighted lines while in visual mode
 map("v","J",":m '>+1<CR>gv=gv")
@@ -43,3 +44,5 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 --make file im on executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+

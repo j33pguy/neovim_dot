@@ -104,6 +104,15 @@ _G.packer_plugins = {
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["comment-box.nvim"] = {
+    commands = { "CB*" },
+    config = { 'require("config/coding.comment-box")' },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/opt/comment-box.nvim",
+    url = "https://github.com/LudoPinelli/comment-box.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -165,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/pop-punk",
     url = "https://github.com/bignimbus/pop-punk.vim"
   },
+  ripgrep = {
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/ripgrep",
+    url = "https://github.com/BurntSushi/ripgrep"
+  },
   tagbar = {
     loaded = true,
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/tagbar",
@@ -174,6 +188,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/j33p/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    config = { 'require("config/coding.todo")' },
+    loaded = true,
+    path = "/home/j33p/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   undotree = {
     loaded = true,
@@ -222,6 +242,16 @@ time([[Defining packer_plugins]], false)
 time([[Config for pop-punk]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
 time([[Config for pop-punk]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require("config/coding.todo")
+time([[Config for todo-comments.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[au CmdUndefined CB* ++once lua require"packer.load"({'comment-box.nvim'}, {}, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
