@@ -1,6 +1,6 @@
 -- This file can be loaded by calling `lua require( 'plugins' )` from your init.vim
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+--vim.cmd [[packadd packer.nvim]] --not needed...called L:21
 
 local settings = require( "settings" )
 local fn = vim.fn

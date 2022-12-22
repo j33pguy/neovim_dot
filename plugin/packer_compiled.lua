@@ -335,14 +335,14 @@ end
 time([[Config for LuaSnip]], true)
 require("config/coding.luasnip")
 time([[Config for LuaSnip]], false)
--- Config for: pop-punk
-time([[Config for pop-punk]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
-time([[Config for pop-punk]], false)
 -- Config for: nvim-window-picker
 time([[Config for nvim-window-picker]], true)
 require("config/ui.nvim-window-picker")
 time([[Config for nvim-window-picker]], false)
+-- Config for: pop-punk
+time([[Config for pop-punk]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\25colorscheme pop-punk\bcmd\bvim\0", "config", "pop-punk")
+time([[Config for pop-punk]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 require("config/coding.todo")
@@ -351,6 +351,7 @@ time([[Config for todo-comments.nvim]], false)
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[au CmdUndefined CB* ++once lua require"packer.load"({'comment-box.nvim'}, {}, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Neotree* ++once lua require"packer.load"({'neo-tree.nvim'}, {}, _G.packer_plugins)]])
 pcall(vim.api.nvim_create_user_command, 'Telescope', function(cmdargs)
           require('packer.load')({'telescope.nvim'}, { cmd = 'Telescope', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -358,7 +359,6 @@ pcall(vim.api.nvim_create_user_command, 'Telescope', function(cmdargs)
           require('packer.load')({'telescope.nvim'}, { cmd = 'Telescope' }, _G.packer_plugins)
           return vim.fn.getcompletion('Telescope ', 'cmdline')
       end})
-pcall(vim.cmd, [[au CmdUndefined Neotree* ++once lua require"packer.load"({'neo-tree.nvim'}, {}, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 

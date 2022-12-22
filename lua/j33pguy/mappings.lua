@@ -1,54 +1,53 @@
 local map = vim.keymap.set
-
 local default_options = { silent = true }
 
 vim.g.mapleader = " "
 
 --Move to diff panes by using CNTRL HJKL 
-map("n","<C-h>", "<C-w>h")
-map("n","<C-j>", "<C-w>j")
-map("n","<C-k>", "<C-w>k")
-map("n","<C-l>", "<C-w>l")
+map( "n" , "<C-h>" , "<C-w>h" )
+map( "n" , "<C-j>" , "<C-w>j" )
+map( "n" , "<C-k>" , "<C-w>k" )
+map( "n" , "<C-l>" , "<C-w>l" )
 
 --Open NETRW for file exploration
-map("n","<leader>pv",vim.cmd.Ex)
+map( "n" , "<leader>pv",vim.cmd.Ex)
 
 
 --Move highlighted lines while in visual mode
 --Remeber: use <C-v> to go into visual block mode
-map("v","J",":m '>+1<CR>gv=gv")
-map("v","K",":m '<-2<CR>gv=gv")
+map( "v" , "J",":m '>+1<CR>gv=gv" )
+map( "v" , "K",":m '<-2<CR>gv=gv" )
 
 --Half page jumping
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+map( "n" , "<C-d>", "<C-d>zz" )
+map( "n" , "<C-u>", "<C-u>zz" )
 
 --Keep search terms in middle
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
+map( "n" , "n", "nzzzv" )
+map( "n" , "N", "Nzzzv" )
 
 --Paste over selection and put to void buffer
 --Allows you to keep what you copied after you paste
-map("x","<leader>p", "\"_dP")
+map( "x" , "<leader>p" , "\"_dP" )
 
 --Yank into system clipboard
-map("n", "<leader>y","\"+y")
-map("v", "<leader>y","\"+y")
-map("n", "<leader>Y","\"+Y")
+map( "n" , "<leader>y" , "\"+y" )
+map( "v" , "<leader>y" , "\"+y" )
+map( "n" , "<leader>Y" , "\"+Y" )
 
 --Vim quickfix keymaps
-map("n", "<C-k>","<cmd>cnext<CR>zz")
-map("n", "<C-j>","<cmd>cprev<CR>zz")
-map("n", "<leader>k","<cmd>lnext<CR>zz")
-map("n", "<leader>j","<cmd>lprev<CR>zz")
+map( "n" , "<C-k>" , "<cmd>cnext<CR>zz" )
+map( "n" , "<C-j>" , "<cmd>cprev<CR>zz" )
+map( "n" , "<leader>k" , "<cmd>lnext<CR>zz" )
+map( "n" , "<leader>j" , "<cmd>lprev<CR>zz" )
 
 --Vim replace word is selected 
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map( "n" , "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 --make file im on executable
-map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+map( "n" , "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-local wk = require("which-key")
+local wk = require( "which-key" )
 
 wk.register({
     sa = "Add surrounding",
@@ -58,11 +57,15 @@ wk.register({
 wk.register({
 f = {
     name = "Files",
-    f = {"<cmd>Neotree focus filesystem toggle<cr>", "Toggle Filetree" },
-    b = {"<cmd>Neotree focus buffers toggle<cr>", "Toggle buffers" },
-    g = {"<cmd>Neotree focus git_status toggle<cr>", "Toggle Git Status" },
+    f = { "<cmd>Neotree focus filesystem toggle<cr>" , "Toggle Filetree" },
+    b = { "<cmd>Neotree focus buffers toggle<cr>" , "Toggle buffers" },
+    g = { "<cmd>Neotree focus git_status toggle<cr>" , "Toggle Git Status" },
 
 },
+c = {
+    name = "Comment Box",
+    b = { "<cmd>CBcbox<cr>" , "Comment Box" },
+    l = { "<cmd>CBline<cr>" , "Comment Line" },
+},
 
-},{ prefix = "<leader>",mode = "n", default_options })
-
+},{ prefix = "<leader>" , mode = "n" , default_options })
